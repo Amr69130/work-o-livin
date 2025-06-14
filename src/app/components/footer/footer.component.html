@@ -1,1 +1,101 @@
-<p>footer works!</p>
+<footer class="bg-gray-900 text-gray-50 py-6">
+  <div
+    class="max-w-7xl px-6 sm:px-12 md:px-16 lg:px-20 m-auto flex items-center justify-between"
+  >
+    <!-- Qui sommes-nous -->
+    <div class="relative max-w-xs qui-sommes-nous">
+      <h2
+        class="text-lg font-semibold cursor-pointer"
+        (click)="toggleQuiSommesNous()"
+      >
+        Qui sommes-nous ?
+      </h2>
+
+      @if(quiSommesNousOpen) {
+      <p
+        class="absolute bottom-full left-0 mb-4 p-4 rounded-md bg-gray-800 text-gray-400 shadow-md max-w-xs"
+      >
+        Work’O’Livin’ est une société spécialisée dans l’accueil, l’hébergement,
+        et le service de conciergerie, afin d’offrir un maximum de confort et
+        d’efficacité.
+      </p>
+      }
+    </div>
+
+    <!-- Created by -->
+    <div class="text-gray-500">
+      <p>
+        Created by <span class="font-semibold">AMROUCHE NORRIS</span> — 2025
+      </p>
+    </div>
+
+    <!-- Mentions légales -->
+    <div class="relative max-w-xs mentions-legales">
+      <h2
+        class="text-lg font-semibold cursor-pointer"
+        (click)="toggleMentionsLegales()"
+      >
+        Mentions légales
+      </h2>
+
+      @if(mentionsLegalesOpen) {
+      <ul
+        class="absolute bottom-full right-0 mb-4 p-4 rounded-md bg-gray-800 text-gray-400 shadow-md max-w-xs space-y-2"
+      >
+        <li>
+          <a
+            href="#"
+            (click)="openModal('politique', $event)"
+            class="hover:text-gray-300 transition-colors duration-300"
+            >Politique de confidentialité</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            (click)="openModal('conditions', $event)"
+            class="hover:text-gray-300 transition-colors duration-300"
+            >Conditions générales d’utilisation</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            (click)="openModal('cookies', $event)"
+            class="hover:text-gray-300 transition-colors duration-300"
+            >Politique de cookies</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            (click)="openModal('contact', $event)"
+            class="hover:text-gray-300 transition-colors duration-300"
+            >Contact & Support</a
+          >
+        </li>
+      </ul>
+      }
+    </div>
+  </div>
+
+  <!-- Modal -->
+  @if(modalOpen) {
+  <div
+    class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div
+      class="bg-white/90 backdrop-blur-md p-6 rounded-md shadow-md relative max-w-md whitespace-pre-line text-gray-900"
+    >
+      <button
+        (click)="closeModal()"
+        class="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
+        aria-label="Fermer la modale"
+      >
+        ✕
+      </button>
+      <p>{{ modalContent }}</p>
+    </div>
+  </div>
+  }
+</footer>
