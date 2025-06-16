@@ -4,7 +4,7 @@ import Reservation from "./reservation.interface"
 import Service from "./service.interface"
 import User from "./user.interface"
 
-export default interface Annoucement {
+export default interface Announcement {
   id: number
   title: string
   description: string

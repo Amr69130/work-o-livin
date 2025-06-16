@@ -14,4 +14,27 @@
       {{ description }}
     </p>
   </div>
+
+  <div>
+    <ul>
+      @for (announcement of announcements; track announcement.id) {
+      <li [class.special]="announcement.dailyPrice > 90">
+        <h2>{{ announcement.title }}</h2>
+        <img [src]="announcement.imageCover" alt="image de l'annonce" />
+        <p>{{ announcement.description }}</p>
+        <p>Prix par nuit : {{ announcement.dailyPrice }}€</p>
+        <p>Adresse : {{ announcement.address }}</p>
+        <p>Propriétaire : {{ announcement.owner.name }}</p>
+
+        @if (announcement.dailyPrice > 90) {
+
+        <p class="text-red-500">Prix supérieur à 90 !</p>
+        } @else{
+
+        <p class="text-green-500">Prix raisonnable</p>
+        }
+      </li>
+      }
+    </ul>
+  </div>
 </section>
