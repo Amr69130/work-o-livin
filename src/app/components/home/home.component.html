@@ -39,6 +39,8 @@
         Propriétaire : {{ announcement.owner.name }}
       </p>
 
+      <a [routerLink]="['/details', announcement.id]">Details</a>
+
       @if (announcement.dailyPrice > 90) {
       <p class="mt-2 text-red-600 font-bold">Prix supérieur à 90 !</p>
       } @else {
