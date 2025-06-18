@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import Announcement from '../models/announcement.interface';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnouncementService {
 
-  private apiUrl = 'http://51.254.112.67/api/announcements';
+  private apiUrl: string = `${environment.apiUrl}`;
 
 
   constructor(private http: HttpClient) { }
