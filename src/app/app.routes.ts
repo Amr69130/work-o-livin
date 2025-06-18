@@ -4,6 +4,7 @@ import { AnnouncementDetailComponent } from './components/announcement-detail/an
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AnnouncementListComponent } from './components/announcement-list/announcement-list.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
       { path: 'about-us', component: AboutUsComponent },
       { path: 'announcement-list', component: AnnouncementListComponent },
       { path: 'contact', component: ContactComponent },
+      { path: 'register', component: RegisterComponent },
 
 
     { path: 'details/:id', component: AnnouncementDetailComponent },
