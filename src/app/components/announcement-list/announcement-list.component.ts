@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Announcement from '../../models/announcement.interface';
+import { AnnouncementService } from '../../services/announcement.service';
 
 @Component({
   selector: 'app-announcement-list',
@@ -19,14 +20,19 @@ export class AnnouncementListComponent {
   
     announcements: Announcement[] = [];
   
+      constructor(private announcementService: AnnouncementService) {}
+
+
+
     ngOnInit(): void {
   
-      this.httpClient.get<Announcement[]>('http://51.254.112.67/api/announcements',
-        { headers: { 'accept': 'application/json' } }
-      ).subscribe({
+      this.announcementService.getAnnouncements().subscribe({
         next: (data) => {
           this.announcements = data;
           console.log(this.announcements);
+        },
+        error: (err) => {
+          console.error('Error fetching announcements:', err);
         }
   
       });
