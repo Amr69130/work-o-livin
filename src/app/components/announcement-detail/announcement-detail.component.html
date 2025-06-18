@@ -2,3 +2,33 @@
   TODO : ICI SE TROUVERONT LES DETAILS D'UNE ANNONCE EN FONCTION DE SON ID VIA
   REQUETE API GRACE AUX SERVICES
 </p>
+<div class="max-w-xl mx-auto bg-white rounded-2xl shadow-md p-6 space-y-4">
+  <h2 class="text-2xl font-bold text-gray-800">{{ announcement.title }}</h2>
+
+  <img
+    [src]="announcement.imageCover"
+    alt="image de l'annonce"
+    class="rounded-xl object-cover w-full h-52 shadow-sm"
+  />
+
+  <p class="text-gray-700">{{ announcement.description }}</p>
+
+  <img
+    [src]="announcement.images"
+    alt="galerie d'images"
+    class="rounded-xl object-cover w-full h-52 shadow-sm"
+  />
+
+  <p class="text-lg font-semibold text-primary">
+    Prix par nuit : {{ announcement.dailyPrice }}€
+  </p>
+
+  <p class="text-sm text-gray-600">
+    <span class="font-medium">Adresse :</span> {{ announcement.address }}
+  </p>
+
+  <p class="text-sm text-gray-600">
+    <span class="font-medium">Propriétaire :</span>
+    {{ announcement.owner.name }}
+  </p>
+</div>

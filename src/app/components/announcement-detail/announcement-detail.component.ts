@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import Announcement from '../../models/announcement.interface';
+import { AnnouncementService } from '../../services/announcement.service';
 
 @Component({ 
   selector: 'app-announcement-detail',
@@ -10,13 +12,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./announcement-detail.component.css']
 })
 export class AnnouncementDetailComponent implements OnInit {
+  announcement!: Announcement;
 
-  private route = inject(ActivatedRoute);
-  announcementId: string | null = null;
+  constructor(
+    private route: ActivatedRoute,
+    private announcementService: AnnouncementService
+  ) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.announcementId = params.get('id');
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.announcementService.getAnnouncementById(id).subscribe({
+      next: (data) => {
+        this.announcement = data;
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération de l\'annonce', err);
+      }
     });
   }
 }
+
+// chargerUsers() {
+//     this.userService.getUsers().subscribe(data => {
+// 			//Affectation des datas
+//       this.users = data;
+//     });
+//   }
