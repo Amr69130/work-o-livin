@@ -1,0 +1,34 @@
+<section class="mt-8 px-6">
+  <ul class="flex flex-wrap gap-6 justify-center">
+    @for (announcement of announcements; track announcement.id) {
+    <li
+      class="border rounded-lg shadow-md p-4 w-full sm:w-72 hover:shadow-xl transition duration-300"
+      [class.border-red-500]="announcement.dailyPrice > 90"
+      [class.border-green-500]="announcement.dailyPrice <= 90"
+    >
+      <h2 class="text-xl font-semibold mb-2">{{ announcement.title }}</h2>
+      <img
+        [src]="announcement.imageCover"
+        alt="image de l'annonce"
+        class="rounded-md mb-2 object-cover h-40 w-full"
+      />
+      <p class="mb-1">{{ announcement.description }}</p>
+      <p class="font-semibold">
+        Prix par nuit : {{ announcement.dailyPrice }}€
+      </p>
+      <p class="text-sm text-gray-600">{{ announcement.address }}</p>
+      <p class="text-sm text-gray-600">
+        Propriétaire : {{ announcement.owner.name }}
+      </p>
+
+      <a [routerLink]="['/details', announcement.id]">Details</a>
+
+      @if (announcement.dailyPrice > 90) {
+      <p class="mt-2 text-red-600 font-bold">Prix supérieur à 90 !</p>
+      } @else {
+      <p class="mt-2 text-green-600 font-bold">Prix raisonnable</p>
+      }
+    </li>
+    }
+  </ul>
+</section>
