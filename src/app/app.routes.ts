@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 export const routes: Routes = [
 
     //Chemin de la route, composant lié
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
       { path: 'about-us', component: AboutUsComponent },
       { path: 'announcement-list', component: AnnouncementListComponent },
       { path: 'contact', component: ContactComponent },
