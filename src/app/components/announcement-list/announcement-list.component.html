@@ -1,4 +1,21 @@
 <section class="mt-8 px-6">
+  @if (showSuccess) {
+  <div
+    class="max-w-lg mx-auto mt-6 p-5 bg-green-200 border border-green-500 text-green-900 font-semibold rounded-xl shadow-lg flex items-center gap-4 transition-all duration-700 ease-out animate-fade-in-up"
+  >
+    <svg
+      class="w-8 h-8 text-green-700 animate-bounce"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+    <span>Connexion réussie !</span>
+  </div>
+  }
+
   <ul class="flex flex-wrap gap-6 justify-center">
     @for (announcement of announcements; track announcement.id) {
     <li
