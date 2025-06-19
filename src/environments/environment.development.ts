@@ -1,2 +1,6 @@
-import { environment } from './environment';
-
+export const environment = {
+  production: false,
+  apiUrl: 'http://51.254.112.67/',
+  enableLogging: true,
+  version: '1.0.0-dev'
+};
