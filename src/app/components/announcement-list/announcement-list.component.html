@@ -15,9 +15,15 @@
     <span>Connexion réussie !</span>
   </div>
   }
+  <label for="priceFilter">Filtrer par prix :</label>
+  <select id="priceFilter" [(ngModel)]="priceFilter">
+    <option value="all">Tous</option>
+    <option value="low">Prix raisonnable (≤ 90)</option>
+    <option value="high">Prix élevé (> 90)</option>
+  </select>
 
   <ul class="flex flex-wrap gap-6 justify-center">
-    @for (announcement of announcements; track announcement.id) {
+    @for (announcement of filteredAnnouncements; track announcement.id) {
     <li
       class="border rounded-lg shadow-md p-4 w-full sm:w-72 hover:shadow-xl transition duration-300"
       [class.border-red-500]="announcement.dailyPrice > 90"

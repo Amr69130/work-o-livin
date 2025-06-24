@@ -4,11 +4,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Announcement from '../../models/announcement.interface';
 import { AnnouncementService } from '../../services/announcement.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-announcement-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './announcement-list.component.html',
   styleUrl: './announcement-list.component.css'
 })
@@ -19,6 +20,16 @@ export class AnnouncementListComponent implements OnInit {
   title: string = 'Mes annonces';
   
   announcements: Announcement[] = [];
+  priceFilter: 'all' | 'low' | 'high' = 'all'; // Filtre de prix
+
+  get filteredAnnouncements(): Announcement[] {
+    if (this.priceFilter === 'low') {
+      return this.announcements.filter(a => a.dailyPrice <= 90);
+    } else if (this.priceFilter === 'high') {
+      return this.announcements.filter(a => a.dailyPrice > 90);
+    }
+    return this.announcements;
+  }
 
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
   showSuccess = true;

@@ -7,7 +7,14 @@
       class="h-12 w-12 rounded-md shadow-md"
     />
     <h1 class="text-gray-50 font-semibold text-2xl">WORK-O-LIVIN'</h1>
+    <div class="bg-amber-700">
+      <p>test</p>
 
+      @if(userName) {
+      <span class="text-gray-50 font-semibold text-lg"
+        >Bonjour {{ userName }}</span
+      >}
+    </div>
     <!-- TODO : ICI SE TROUVERA "BONJOUR {{NOM_UTILISATEUR}}" SI CONNECTÉ -->
   </div>
   <!-- Navigation Links -->
