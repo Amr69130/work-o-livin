@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import Announcement from '../models/announcement.interface';
 import { Observable } from 'rxjs';
@@ -21,5 +21,14 @@ export class AnnouncementService {
   getAnnouncementById(id: number): Observable<Announcement> {
 
     return this.http.get<Announcement>(`${this.apiUrl}/${id}`);
+  }
+
+  getFilteredAnnouncements(minPrice: number, maxPrice: number): Observable<Announcement[]> {
+    return this.http.get<Announcement[]>(
+      `${this.apiUrl}/announcements?minPrice=${minPrice}&maxPrice=${maxPrice}`, 
+ 
+      
+      {headers: { 'accept': 'application/json' } }
+    );
   }
 }

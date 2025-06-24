@@ -20,16 +20,26 @@ export class AnnouncementListComponent implements OnInit {
   title: string = 'Mes annonces';
   
   announcements: Announcement[] = [];
-  priceFilter: 'all' | 'low' | 'high' = 'all'; // Filtre de prix
+  minPrice: number = 0;
+maxPrice: number = 500;
 
-  get filteredAnnouncements(): Announcement[] {
-    if (this.priceFilter === 'low') {
-      return this.announcements.filter(a => a.dailyPrice <= 90);
-    } else if (this.priceFilter === 'high') {
-      return this.announcements.filter(a => a.dailyPrice > 90);
-    }
-    return this.announcements;
+sliderOptions: Options = {
+  floor: 0,
+  ceil: 500,
+  step: 10,
+  translate: (value: number): string => {
+    return value + ' €';
   }
+};
+
+onFilterChange() {
+  // Appeler API avec minPrice et maxPrice
+  this.announcementService.getFilteredAnnouncementsByPrice(this.minPrice, this.maxPrice).subscribe({
+    next: data => this.announcements = data,
+    error: err => console.error(err)
+  });
+}
+
 
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
   showSuccess = true;
