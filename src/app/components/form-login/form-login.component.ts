@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -13,9 +13,10 @@ export class FormLoginComponent {
   loginForm: FormGroup;
   isSubmitted = false;
   isLoading = false;
+  private formBuilder: FormBuilder = inject(FormBuilder)
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
+  constructor(private router: Router) {
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -32,7 +33,7 @@ export class FormLoginComponent {
 
     setTimeout(() => {
       this.isLoading = false;
-      console.log('Connexion réussie');
+      console.log('Connexion réussie en tant que :', loginData.username);
 
       this.router.navigate(['/announcement-list']); 
 
