@@ -14,32 +14,23 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './announcement-list.component.css'
 })
 export class AnnouncementListComponent implements OnInit {
-  
+
   private httpClient: HttpClient = inject(HttpClient);
-  
+
   title: string = 'Mes annonces';
-  
+
   announcements: Announcement[] = [];
   minPrice: number = 0;
-maxPrice: number = 500;
+  maxPrice: number = 500;
 
-sliderOptions: Options = {
-  floor: 0,
-  ceil: 500,
-  step: 10,
-  translate: (value: number): string => {
-    return value + ' €';
+  
+
+  onFilterChange() {
+    this.announcementService.getFilteredAnnouncements(this.minPrice, this.maxPrice).subscribe({
+      next: (data: Announcement[]) => this.announcements = data,
+      error: (err: any) => console.error(err)
+    });
   }
-};
-
-onFilterChange() {
-  // Appeler API avec minPrice et maxPrice
-  this.announcementService.getFilteredAnnouncementsByPrice(this.minPrice, this.maxPrice).subscribe({
-    next: data => this.announcements = data,
-    error: err => console.error(err)
-  });
-}
-
 
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
   showSuccess = true;
@@ -49,11 +40,11 @@ onFilterChange() {
   ngOnInit(): void {
     // Chargement des annonces
     this.announcementService.getAnnouncements().subscribe({
-      next: (data) => {
+      next: (data: Announcement[]) => {
         this.announcements = data;
         console.log(this.announcements);
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error fetching announcements:', err);
       }
     });
