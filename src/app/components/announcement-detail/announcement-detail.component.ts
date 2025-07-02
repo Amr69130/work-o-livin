@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import Announcement from '../../models/announcement.interface';
 import { AnnouncementService } from '../../services/announcement.service';
 
-@Component({ 
+@Component({
   selector: 'app-announcement-detail',
   standalone: true,
   imports: [CommonModule],
@@ -32,9 +32,3 @@ export class AnnouncementDetailComponent implements OnInit {
   }
 }
 
-// chargerUsers() {
-//     this.userService.getUsers().subscribe(data => {
-// 			//Affectation des datas
-//       this.users = data;
-//     });
-//   }
