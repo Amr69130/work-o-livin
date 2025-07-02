@@ -42,6 +42,10 @@
 
       <a [routerLink]="['/details', announcement.id]">Details</a>
 
+
+
+      <!--SI UNE ANNONCE A UN PRIX SUPERIEUR A 90 ALORS ELLE EST ENCADRE DE ROUGE ET IL EST ECRIT PRIX SUP 90 MAIS SI INFERIEUR ALORS ENCADRE VERT ET ECRIT RAISONNABLE-->
+      <!-- ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ -->
       @if (announcement.dailyPrice > 90) {
       <p class="mt-2 text-red-600 font-bold">Prix supérieur à 90 !</p>
       } @else {
@@ -49,5 +53,8 @@
       }
     </li>
     }
+    <!-- ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ -->
+    <!--SI UNE ANNONCE A UN PRIX SUPERIEUR A 90 ALORS ELLE EST ENCADRE DE ROUGE ET IL EST ECRIT PRIX SUP 90 MAIS SI INFERIEUR ALORS ENCADRE VERT ET ECRIT RAISONNABLE-->
+
   </ul>
 </section>
