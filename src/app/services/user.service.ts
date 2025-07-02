@@ -38,4 +38,13 @@ export class UserService {
   getCurrentUserName(): string {
     return this.currentUserNameSubject.value;
   }
+
+    getCurrent(token:string) {
+    return this.httpClient.get(environment.apiUrl + 'api/me',{
+      headers: {
+        accept: 'application/json',
+        'Authorization': 'Bearer ' + token
+      },withCredentials: true
+    });
+  }
 }

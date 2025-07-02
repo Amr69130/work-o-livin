@@ -32,7 +32,17 @@ export class FormLoginComponent {
       console.log('Données de connexion:');
 this.userService.login(this.loginForm.value).subscribe({
   next:(data)=>{
-    console.log(data);
+    const token:string = data.token
+          console.log(token);
+          if(token){
+            this.userService.getCurrent(token).subscribe({
+              next:(data)=>{
+                console.log(data);
+              },error:(error)=>{
+                console.log(error);
+              }
+            })
+          }
   },error: (error)=>{
 console.log(error.message());
   },
@@ -41,3 +51,8 @@ console.log(error.message());
     }
   }
 }
+
+
+
+          
+ 
