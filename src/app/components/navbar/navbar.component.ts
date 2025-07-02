@@ -4,7 +4,6 @@ import { UserService } from '../../services/user.service';
 import User from '../../models/user.interface';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -12,11 +11,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-
-
 export class NavbarComponent implements OnInit {
   darkMode = false;
-  userName: string | null = null; 
+  userName: string | null = null;
 
   constructor(private userService: UserService) {
     this.darkMode = localStorage.getItem('darkMode') === 'true';
@@ -33,15 +30,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getCurrentUser(this.userService.token).subscribe({
-      nex: (user) => {
-        this.user = user;
-      },// ou `${user.firstName} ${user.name}` si tu veux les deux
-    console.log('Utilisateur actuel récupéré :', user.firstName, user.name);
-  },
-  error: (err) => {
-    console.error('Erreur lors de la récupération de l’utilisateur actuel:', err);
-    this.userName = null;
-  }
-});
+      next: (user) => {
+        this.userName = user.firstName; // ou `${user.firstName} ${user.name}` selon votre besoin
+        console.log('Utilisateur actuel récupéré :', user.firstName, user.name);
+      }
+    });
   }
 }
