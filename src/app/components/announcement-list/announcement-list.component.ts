@@ -20,17 +20,11 @@ export class AnnouncementListComponent implements OnInit {
   title: string = 'Mes annonces';
 
   announcements: Announcement[] = [];
-  minPrice: number = 0;
-  maxPrice: number = 500;
 
-  
 
-  onFilterChange() {
-    this.announcementService.getFilteredAnnouncements(this.minPrice, this.maxPrice).subscribe({
-      next: (data: Announcement[]) => this.announcements = data,
-      error: (err: any) => console.error(err)
-    });
-  }
+
+
+
 
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
   showSuccess = true;

@@ -16,27 +16,7 @@
   </div>
   }
 
-  <!-- <label for="minPriceRange">Prix min: {{ minPrice }} €</label>
-  <input
-    type="range"
-    id="minPriceRange"
-    min="0"
-    max="500"
-    step="10"
-    [(ngModel)]="minPrice"
-    (change)="onFilterChange()"
-  />
 
-  <label for="maxPriceRange">Prix max: {{ maxPrice }} €</label>
-  <input
-    type="range"
-    id="maxPriceRange"
-    min="0"
-    max="500"
-    step="10"
-    [(ngModel)]="maxPrice"
-    (change)="onFilterChange()"
-  /> -->
 
   <ul class="flex flex-wrap gap-6 justify-center">
     @for (announcement of announcements; track announcement.id) {
