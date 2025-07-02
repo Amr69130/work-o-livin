@@ -1,1 +1,12 @@
-<h1>{{ description }}</h1>
+<!-- Conteneur principal full height avec flex-col -->
+<div class="min-h-screen flex flex-col">
+
+  <!-- Contenu principal qui pousse le footer en bas -->
+  <main class="flex-grow max-w-4xl mx-auto p-8 mt-8 mb-8 bg-white rounded-xl shadow-md">
+    <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">À propos de Work-O-Livin</h1>
+    <p class="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+      {{ description }}
+    </p>
+  </main>
+
+</div>
