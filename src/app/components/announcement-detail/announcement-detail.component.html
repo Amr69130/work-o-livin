@@ -32,14 +32,12 @@
     {{ announcement.owner.name }}
   </p>
 
-
+<!--POUR CHAQUE  SERVICE ON AJOUTE AU TITRE UNE ICONE CORRESPONDANTE DE MATERIAL ICON-->
 <p>Services disponibles: </p>
-  @for (serv of announcement.services; track serv.title) {
-    <span
-               class="bg-gray-100 rounded-full px-2 py-1 flex items-center gap-1"
-             >
-             {{ serv.title }}
-           </span>
+  @for (service of announcement.services; track service.title) {
+    <i class="material-icons text-gray-600">{{ service.title | serviceIcon }}</i>
+    <span class="ml-2">{{ service.title }}</span>
+
   }
 
 
