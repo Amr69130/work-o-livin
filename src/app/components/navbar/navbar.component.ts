@@ -28,12 +28,5 @@ export class NavbarComponent {
     localStorage.setItem('darkMode', this.darkMode.toString());
   }
 
-  // ngOnInit(): void {
-  //   this.userService.getCurrentUser(this.userService.token).subscribe({
-  //     next: (user) => {
-  //       this.userName = user.firstName; // ou `${user.firstName} ${user.name}` selon votre besoin
-  //       console.log('Utilisateur actuel récupéré :', user.firstName, user.name);
-  //     }
-  //   });
-  // }
+
 }
