@@ -14,21 +14,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './announcement-list.component.css'
 })
 export class AnnouncementListComponent implements OnInit {
-  
-  private httpClient: HttpClient = inject(HttpClient);
-  
-  title: string = 'Mes annonces';
-  
-  announcements: Announcement[] = [];
-  priceFilter: 'all' | 'low' | 'high' = 'all'; // Filtre de prix
 
-  get filteredAnnouncements(): Announcement[] {
-    if (this.priceFilter === 'low') {
-      return this.announcements.filter(a => a.dailyPrice <= 90);
-    } else if (this.priceFilter === 'high') {
-      return this.announcements.filter(a => a.dailyPrice > 90);
-    }
-    return this.announcements;
+  private httpClient: HttpClient = inject(HttpClient);
+
+  title: string = 'Mes annonces';
+
+  announcements: Announcement[] = [];
+  minPrice: number = 0;
+  maxPrice: number = 500;
+
+  
+
+  onFilterChange() {
+    this.announcementService.getFilteredAnnouncements(this.minPrice, this.maxPrice).subscribe({
+      next: (data: Announcement[]) => this.announcements = data,
+      error: (err: any) => console.error(err)
+    });
   }
 
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
@@ -39,11 +40,11 @@ export class AnnouncementListComponent implements OnInit {
   ngOnInit(): void {
     // Chargement des annonces
     this.announcementService.getAnnouncements().subscribe({
-      next: (data) => {
+      next: (data: Announcement[]) => {
         this.announcements = data;
         console.log(this.announcements);
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error fetching announcements:', err);
       }
     });

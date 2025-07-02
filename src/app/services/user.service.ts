@@ -8,19 +8,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NTEzNzQyMjMsImV4cCI6MTc1MTM3NzgyMywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoibGVtYXJvdWNoZUB0ZXN0LmNvbSJ9.NehoGuQkJOzYQC42JFRYN1dwQ2UvA83lPtJS_h5YsOFbuMzZ9qZKBZy9Whi0BkeTW6JuD9AEQymsNGfI2r1gkeFp_GgcPSkXtBy7FzkQfr8Ziydk3W3eTRN6it2AnpSF-BBWqcNgl1lPm_LcCuoH94uh6Exf5jBH7o5ddOlGvC816Dhx68-hnzpYIt9r5zgoqXPgO1ooI-Q0Cu8-JubPlfmU9n6Q-RKfUej92q4g8hiuqJVYCEUdqcbeog2dM-x9rfBG55dbo9eU273c7m1qkNxQqvo5in03u65ZcAdJd0u3xz3TVi4u4yLUuTOvmAbZwdGuIaMneA9OFV-fRPVggw'
+  private apiUrlCurrentUser: string = `${environment.apiUrl}api/me`;
+  private apiUrlRegister: string = `${environment.apiUrl}api/register`;
 
-  private apiUrl: string = `${environment.apiUrl}api/me`;
-  
-  
-    constructor(private http: HttpClient) { }
-  
-    getCurrentUser(): Observable<User> {
-  return this.http.get<User>(this.apiUrl, {
-    headers: { 'accept': 'application/json','Authorization' : `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NTA3NTQzNjksImV4cCI6MTc1MDc1Nzk2OSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoibm9ycmlzQHRlc3QuY29tIn0.MuhW6UJLV-L7Mifc9AAnffXThAPeJBTL1HtT8Q9y_Vt0koZvVkVRh-WEaSb17gayvJy46-2c7dcXgIfwigiFPIfX_wS01VamGg4ar74tpsDFcv3RUiyCyQ47-l4xaRBsD-0u3Jh1X3bOpiE9_YGB7i6hHhY6CZ4rAiq2ASmkBIcinIbXI90V_eaXzO4-cymiJ9jTkUSY2KAfCCmSYstXjlAsmrkarXToOc0L_onm1qZu2elXLEDckRSbVxrSoWVbD4j5ECmQiwzN1shml5KiA79LPmb2NKhmVSeKKV9Taql_9kRlNXAwfCz62x24Bons0TApXMJ3XRX26svYXP8h2Q` }
-  });
-}
+  constructor(private http: HttpClient) {}
 
-    
+  getCurrentUser(token: string): Observable<User> {
+    return this.http.get<User>(this.apiUrlCurrentUser, {
+      headers: {
+        'accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
 
-
+  register(userData: { email: string; username: string; password: string }): Observable<User> {
+    return this.http.post<User>(this.apiUrlRegister, userData, {
+      headers: { 'accept': 'application/json' }
+    });
+  }
 }
