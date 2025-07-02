@@ -32,17 +32,16 @@
     {{ announcement.owner.name }}
   </p>
 
-  @if (announcement.services?.length > 0) {
-    <div class="flex flex-wrap gap-2 text-[12px] text-gray-700 mb-4">
-      @for (sv of announcement.services | slice : 0 : 2; track sv.title) {
-        <span
-          class="bg-gray-100 rounded-full px-2 py-1 flex items-center gap-1"
-        >
-        {{ sv.title }}
-      </span>
-      }
-    </div>
+
+<p>Services disponibles: </p>
+  @for (serv of announcement.services; track serv.title) {
+    <span
+               class="bg-gray-100 rounded-full px-2 py-1 flex items-center gap-1"
+             >
+             {{ serv.title }}
+           </span>
   }
+
 
 
 </div>
