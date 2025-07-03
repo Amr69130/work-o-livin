@@ -10,6 +10,10 @@ import {UserService} from '../../services/user.service';
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form-login.component.html',
 })
+
+// A LA SOUMISSION DU FORMULAIRE DE LOGIN JE RECUPERE LE TOKEN PUIS L'IDENTITE COMPLETE DE L'USER, JE POURRAI ME SERVIR DE CES DATAS PLUS TARD POUR D'AUTRES FEATURES (WIP)'
+// ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓
+
 export class FormLoginComponent {
   loginForm: FormGroup;
   isSubmitted = false;
@@ -54,5 +58,4 @@ console.log(error.message());
 
 
 
-          
- 
+
