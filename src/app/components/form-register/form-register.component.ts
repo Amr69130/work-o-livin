@@ -9,6 +9,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './form-register.component.html',
   styleUrl: './form-register.component.css'
 })
+
+
+// UN LIEN SERA FAIT ENTRE LE TS ET L'HTML POUR LA VERIF DES CHAMPS DU FOM VIA LE FORMGROUP ET CE FORMULAIRE SERVIRA A CREER UN USER DANS L'API (WIP)
+//  ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓
 export class FormRegisterComponent {
 registerForm: FormGroup;
 isSubmitted = false;
