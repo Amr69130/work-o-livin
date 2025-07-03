@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import Announcement from '../../models/announcement.interface';
 import { AnnouncementService } from '../../services/announcement.service';
+import {ServicesPipe} from '../../pipes/services.pipe';
 
-@Component({ 
+@Component({
   selector: 'app-announcement-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ServicesPipe],
   templateUrl: './announcement-detail.component.html',
   styleUrls: ['./announcement-detail.component.css']
 })
@@ -32,9 +33,3 @@ export class AnnouncementDetailComponent implements OnInit {
   }
 }
 
-// chargerUsers() {
-//     this.userService.getUsers().subscribe(data => {
-// 			//Affectation des datas
-//       this.users = data;
-//     });
-//   }

@@ -1,16 +1,16 @@
-<section class="flex flex-col md:flex-row items-center gap-6 p-6">
+<section class="min-h-screen flex flex-col md:flex-row items-center gap-8 p-8 bg-gray-50">
   <!-- Image -->
-  <div class="flex-1">
+  <div class="flex-1 flex justify-center md:justify-start">
     <img
       src="assets/images/city.jpg"
       alt="photo de la ville"
-      class="rounded-md shadow-md w-full max-w-xs md:max-w-md object-cover"
+      class="rounded-lg shadow-lg w-full max-w-xs md:max-w-lg object-cover"
     />
   </div>
 
   <!-- Description -->
-  <div class="flex-1">
-    <p class="text-gray-700 leading-relaxed text-justify">
+  <div class="flex-1 max-w-xl">
+    <p class="text-gray-700 leading-relaxed text-justify text-lg">
       {{ description }}
     </p>
   </div>
