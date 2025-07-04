@@ -13,7 +13,7 @@ import {ServicesPipe} from '../../pipes/services.pipe';
   styleUrls: ['./announcement-detail.component.css']
 })
 export class AnnouncementDetailComponent implements OnInit {
-  announcement!: Announcement;
+  announcement: Announcement|undefined;
 
   constructor(
     private route: ActivatedRoute,
