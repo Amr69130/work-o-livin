@@ -1,55 +1,35 @@
 @if(announcement){
-
-
   <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-md p-6 space-y-4">
     <h2 class="text-2xl font-bold text-gray-800">{{ announcement.title }}</h2>
-
-    <img
-      [src]="announcement.imageCover"
+    <img [src]="announcement.imageCover"
       alt="image de l'annonce"
-      class="rounded-xl object-cover w-full h-52 shadow-sm"
-    />
-
+      class="rounded-xl object-cover w-full h-52 shadow-sm"/>
     <p class="text-gray-700">{{ announcement.description }}</p>
-
     <div class="flex flex-row flex-wrap gap-2">
       @for (image of announcement.images; track image.id) {
-        <img
-          [src]="image.imageUrl"
+        <img [src]="image.imageUrl"
           alt="image de l'annonce"
-          class="w-24 h-24 object-contain border"
-        />
-      }
+          class="w-24 h-24 object-contain border"/>}
     </div>
-
     <p class="text-lg font-semibold text-primary mb-4">
       Prix par nuit : {{ announcement.dailyPrice }}€
     </p>
-
     <p class="text-sm text-gray-600 mb-2">
       <span class="font-medium">Adresse :</span> {{ announcement.address }}
     </p>
-
     <p class="text-sm text-gray-600 mb-6">
       <span class="font-medium">Propriétaire :</span>
       {{ announcement.owner?.name }}
     </p>
-
     <!--  ICI Affichage des services avec icônes Material grâce au pipe personnalisé 'serviceIcon' -->
     <!-- ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ -->
     <p class="text-md font-semibold text-gray-800 mb-3">Services disponibles :</p>
     <div class="flex flex-wrap gap-3">
-      @for (service of announcement.services; track service.title) {
-        <div
-          class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-gray-700 text-sm shadow-sm hover:bg-gray-200 transition cursor-default"
-
-        >
-          <i class="material-icons text-primary text-lg">
-            {{ service.title | serviceIcon }}
-          </i>
+      @for (service of announcement.services; track service.title)
+      {<div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-gray-700 text-sm shadow-sm hover:bg-gray-200 transition cursor-default">
+          <i class="material-icons text-primary text-lg">{{ service.title | serviceIcon }}</i>
           <span>{{ service.title }}</span>
-        </div>
-      }
+        </div>}
     </div>
     <!-- ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ -->
     <!--  ICI Affichage des services avec icônes Material grâce au pipe personnalisé 'serviceIcon' -->

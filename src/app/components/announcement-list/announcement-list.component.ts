@@ -20,12 +20,6 @@ export class AnnouncementListComponent implements OnInit {
   title: string = 'Mes annonces';
 
   announcements: Announcement[] = [];
-
-
-
-
-
-
   // PROPRIÉTÉ POUR LE MESSAGE SUCCESS
   showSuccess = true;
 

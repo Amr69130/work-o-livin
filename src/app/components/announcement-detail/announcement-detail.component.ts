@@ -14,12 +14,10 @@ import {ServicesPipe} from '../../pipes/services.pipe';
 })
 export class AnnouncementDetailComponent implements OnInit {
   announcement: Announcement|undefined;
-
   constructor(
     private route: ActivatedRoute,
     private announcementService: AnnouncementService
   ) {}
-
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.announcementService.getAnnouncementById(id).subscribe({

@@ -15,9 +15,6 @@
     <span>Connexion réussie !</span>
   </div>
   }
-
-
-
   <ul class="flex flex-wrap gap-6 justify-center">
     @for (announcement of announcements; track announcement.id) {
     <li
@@ -39,11 +36,7 @@
       <p class="text-sm text-gray-600">
         Propriétaire : {{ announcement.owner.name }}
       </p>
-
       <a [routerLink]="['/details', announcement.id]">Details</a>
-
-
-
       <!--SI UNE ANNONCE A UN PRIX SUPERIEUR A 90 ALORS ELLE EST ENCADRE DE ROUGE ET IL EST ECRIT PRIX SUP 90 MAIS SI INFERIEUR ALORS ENCADRE VERT ET ECRIT RAISONNABLE-->
       <!-- ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ ⇓ -->
       @if (announcement.dailyPrice > 90) {
@@ -55,6 +48,5 @@
     }
     <!-- ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ ⇑ -->
     <!--SI UNE ANNONCE A UN PRIX SUPERIEUR A 90 ALORS ELLE EST ENCADRE DE ROUGE ET IL EST ECRIT PRIX SUP 90 MAIS SI INFERIEUR ALORS ENCADRE VERT ET ECRIT RAISONNABLE-->
-
   </ul>
 </section>

@@ -22,20 +22,16 @@ export class FormLoginComponent {
   isLoading = false;
   private formBuilder: FormBuilder = inject(FormBuilder)
   userService: UserService = inject(UserService)
-
   constructor(private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
-
   onSubmit(): void {
     this.isSubmitted = true;
-
     if (this.loginForm.valid) {
-
-      console.log('Données de connexion:');
+      console.log('le login est validé');
       this.userService.login(this.loginForm.value).subscribe({
         next: (data) => {
           const token: string = data.token
@@ -44,7 +40,7 @@ export class FormLoginComponent {
             this.userService.getCurrent(token).subscribe({
               next: (data) => {
                 console.log(data);
-                 this.router.navigate(['announcement-list']);
+                  this.router.navigate(['announcement-list']);
               },
               error: (error) => {
                 console.log(error);
@@ -56,7 +52,6 @@ export class FormLoginComponent {
           console.log(error.message);
         },
       });
-
     }
   }
 }
