@@ -1,5 +1,29 @@
 # WorkOLivin
 
+Pour ce module de déploiement serveur, nous avons mis en production :
+
+- **API Symfony**  
+  ▶️ [http://35.195.2.21/api](http://35.195.2.21/api)
+
+- **Applications Angular**  
+  ▶️ [http://146.148.6.138](http://146.148.6.138)  
+  ▶️ [http://34.76.212.175](http://34.76.212.175)
+
+Les deux applications Angular consomment notre API Symfony.
+
+---
+
+### Participants au projet
+
+- Aichatou Soumare  
+- Eliesse Mosbah  
+- Guillaume Loriot  
+- Norris Amrouche  
+- Alexandre Barruel
+
+---
+
+
 # Déploiement d'une seconde Application Angular sur une VM Google Cloud (Ubuntu 22.04)
 
 ## 0. Site accessible à l'adresse suivante :
